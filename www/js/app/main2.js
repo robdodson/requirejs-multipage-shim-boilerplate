@@ -1,10 +1,9 @@
 define([
     'jquery',
-    'underscore',
     'app/models/model2',
     'bootstrap/bootstrap-popover'
 ],
-function ($, _, model) {
+function ($, model) {
     // jQuery DOM Ready Handler
     $(function() {
         // Set the title for our module with the data

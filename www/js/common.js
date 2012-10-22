@@ -8,19 +8,16 @@
 requirejs.config({
     baseUrl: 'js/',
     paths: {
-        // We've bundled jQuery and Require.js together per the
-        // author's instructions: http://requirejs.org/docs/jquery.html
-        // If you want to use an alternative to jQuery, like Zepto, then
-        // you'll need to download the regular version of require.js and
-        // create a path to Zepto here.
-        jquery: 'vendor/require-jquery',
-        underscore: 'vendor/underscore',
-        bootstrap: 'vendor/bootstrap'
+        'jquery':                                   'vendor/require-jquery',
+        'bootstrap':                                'vendor/bootstrap',
+        'jquery-ui':                                'vendor/jquery-ui',
+        'd3':                                       'vendor/d3.v2',
+        'highstock':                                'vendor/highstock',
+        'datatables':                               'vendor/datatables',
+        'prettify':                                 'vendor/prettify/prettify',
+        'spin':                                     'vendor/spin'
     },
     shim: {
-        // Underscore
-        'underscore':                               { exports: '_' },
-
         // Bootstrap
         'bootstrap/bootstrap-alert':                [ 'jquery' ],
         'bootstrap/bootstrap-button':               [ 'jquery' ],
@@ -35,5 +32,19 @@ requirejs.config({
         'bootstrap/bootstrap-tooltip':              [ 'jquery' ],
         'bootstrap/bootstrap-transition':           [ 'jquery' ],
         'bootstrap/bootstrap-typeahead':            [ 'jquery' ],
+
+        // Highcharts (Highstock)
+        'highstock':                                ['jquery'],
+
+        // DataTables
+        'datatables/jquery.dataTables':             ['jquery'],
+        'datatables/TableTools':                    ['datatables/jquery.dataTables'],
+        'datatables/ColReorder':                    ['datatables/jquery.dataTables'],
+
+        // D3
+        // `exports` tells requirejs to use the global d3 object as the module value
+        // it does not, however, allow you to change the name of the module to 'd9' or 'foobar'
+        // `exports` can also be a function which returns a value like `return jQuery.noConflict()`
+        'd3':                                       { deps: [ 'jquery' ], exports: 'd3' }
     }
 });
