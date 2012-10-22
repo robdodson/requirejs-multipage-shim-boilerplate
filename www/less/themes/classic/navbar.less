@@ -1,0 +1,530 @@
+.navbar {
+	// We do this font size to prevent natural spaces between LIs from being interpreted as margin.
+	font-size: 0;
+	.container {
+		#grid > .core > .span(@gridColumns);
+	}
+	.brand {
+		color: @navbarBrandColor;
+		#voice > .brand( 18px, normal, 36px );
+		margin: -6px 0 0 -3px;
+		padding: 0;
+		text-align: left;
+		min-width: 350px; // Fixes a bug in IE8
+		img {
+			margin-top: -2px;
+			margin-right: 9px;
+			vertical-align: middle;
+		}
+		small {
+			color: @navbarText;
+			font-size: 13px;
+			margin-left: 5px;
+		}
+	}
+	.nav > li > a {
+		padding: 10px;
+		text-shadow: none;
+	}
+	.nav-header {
+		color: @grayLight;
+		font-size: 11px;
+		font-weight: bold;
+		line-height: @baseLineHeight;
+		padding: 3px 15px;
+		text-transform: uppercase;
+	}
+	.mega-dropdown:before,
+	.mega-dropdown:after {
+		display: none;
+	}
+	.mega-dropdown-arrow {
+		border-left: 6px solid transparent;
+		border-right: 6px solid transparent;
+		border-bottom: 6px solid @white;
+		bottom: -2px;
+		display: none;
+		left: 6px;
+		position: absolute;
+		z-index: @zindexDropdown + 1;
+	}
+	.open .mega-dropdown-arrow {
+		display: block;
+	}
+}
+.navbar-inner {
+	background-color: @navbarBackground;
+	background-image: none;
+	.border-radius(0);
+	.box-shadow(~"none");
+}
+.navbar .btn-group {
+	// Override the default settings of btn-group so that they
+	// flow nicely inline.
+	display: inline-block;
+	margin: 0 1px;
+	padding: 0;
+	.btn {
+		.border-radius(@btnBorderRadius);
+	}
+}
+.navbar .btn,
+.navbar .btn-group .btn-icon {
+	// Make all buttons here appear uniformly dark...
+	background-color: @navbarSearchBackground;
+	border-color: @navbarSearchBackground;
+	border-width: 1px;
+	color: @navbarText;
+	font-size: @baseFontSize - 2;
+	line-height: 20px;
+	padding: 2px 10px;
+	[class^="icon-"],
+	[class*=" icon-"] {
+		font-size: 18px;
+		vertical-align: middle;
+		&.icon-chevron-down {
+			font-size: 12px;
+		}
+	}
+	&:hover,
+	&.active {
+		color: @white;
+	}
+	// ...unless they need some accent colors.
+}
+// Set active states in navbar
+// This one catches open dropdown list items and buttons.
+.navbar .btn-group.open .dropdown-toggle {
+	color: @white;
+}
+// This one catches only the buttons to give them black backgrounds.
+.navbar .btn-group.open .btn.dropdown-toggle {
+	background-color: @black;
+	border-color: @black;
+}
+
+
+// Masthead
+.masthead {
+	// Right-align the content so that all our buttons and forms sit
+	// off to the far edge. We'll float brand so it stays put.
+	text-align: right;
+	// Top padding pushes the inline items down. Brand will use negative
+	// margins so it should move back up in place. We do this to allow
+	// the inline items to appear centered within the masthead but not
+	// have gratuitous top-margins so that when they wrap naturally, they
+	// maintain a consistent margin all the way around.
+	padding-top: 19px;
+}
+.masthead .brand {
+	// All this negative margin allows the brand to be relative but not
+	// obstruct wrapping of other elements.
+//	margin-top: -19px;
+//	margin-bottom: -15px;
+}
+.masthead .btn-collapse {
+	// Position the collapse button to be the farthest item to the
+	// right of the masthead and have consistent margins. This
+	// requires the HTML to be the first element after ".brand".
+	float: right;
+	margin: 0 0 0 10px;
+	position: relative;
+	top: 1px;
+	vertical-align: top;
+	// Homegrown collapse button to somewhat mirror Bootstrap,
+	// but in our typical flat style.
+	background-color: @navbarSearchBackground;
+	border-color: @navbarSearchBackground;
+	display: none;
+	margin-top: -1px;
+	padding: 6px;
+	.icon-bar {
+		background-color: @gray;
+		.border-radius(@btnBorderRadius);
+		display: block;
+		height: 2px;
+		margin-bottom: 3px;
+		width: 20px;
+	}
+	&.in .icon-bar {
+		background-color: @porcelain;
+	}
+}
+.masthead .btn {
+	max-height: 26px;
+	&:hover {
+		background-color: @grayDarker;
+		border-color: @grayDarker;
+	}
+	&:active,
+	&.active {
+		background-color: @black;
+		border-color: @black;
+	}
+}
+
+// Primary Navigation Bar
+.primary-navbar {
+	background-color: @primaryNavbarBackground;
+	.btn-group {
+		padding: 7px 0;
+	}
+	.btn {
+		background-color: @grayDark;
+		border-color: @grayDark;
+		color: @grayLighter;
+		padding: 2px 10px;
+		&:hover {
+			background-color: @grayDarker;
+			border-color: @grayDarker;
+		}
+		&:active,
+		&.active {
+			background-color: @black;
+			border-color: @black;
+		}
+	}
+	.nav > .btn-group {
+		padding: 0;
+		.dropdown-toggle {
+			.border-radius(0);
+		}
+	}
+	.nav > li > a {
+		font-size: @baseFontSize - 2;
+		line-height: @baseLineHeight;
+	}
+	.nav .active > a,
+	.nav .active > a:hover,
+	.nav .active > a:active {
+		background-color: @linkColor;
+		color: @white;
+	}
+	.open .dropdown-toggle {
+		border-color: @black;
+	}
+	.nav .dropdown-menu .nav {
+		margin-bottom: 10px;
+	}
+	.nav .dropdown-menu li {
+		float: none;
+	} 
+	.nav .dropdown-menu a {
+		color: @textColor;
+		padding: 3px 15px;
+	}
+	.nav .dropdown-menu .active a,
+	.nav .dropdown-menu a:hover {
+		background-color: @linkColor;
+		color: @white;
+	}
+	.nav .dropdown-menu .nav-header {
+		padding: 0;
+		a {
+			color: @grayLight;
+			font-size: @baseFontSize - 3;
+			font-weight: bold;
+			&:hover {
+				color: @white;
+			}
+		}
+	}
+	&.in {
+		padding-top: 1px;
+	}
+}
+
+// Workspace Navigation Bar
+.workspace-navbar {
+	background-color: @workspaceNavbarBackground;
+	border-bottom: 1px solid @workspaceNavbarBackgroundHighlight;
+	.nav {
+		padding-bottom: 7px;
+	}
+	.nav > li.nav-header {
+		color: @gray;
+		display: none;
+		float: none;
+		margin-bottom: -6px;
+		padding: 5px 0 0;
+	}
+	.nav > li {
+		line-height: 1;
+	}
+	.btn-group {
+		margin: 7px 4px 0 1px;
+		padding: 0;
+		vertical-align: top;
+	}
+	.btn {
+		background-color: @athensgray;
+		border-color: @athensgray;
+		padding-top: 2px;
+		padding-bottom: 2px;
+		&:hover {
+			background-color: @porcelain;
+			border-color: @porcelain;
+		}
+		&.active,
+		&:active {
+			background-color: darken(@athensgray,15%);
+			border-color: darken(@athensgray,15%);
+		}
+		&.btn-remove {
+			border-left-color: @workspaceNavbarBackground;
+			.border-radius(0 @btnBorderRadius @btnBorderRadius 0);
+			margin-left: -2px;
+			padding: 2px 7px;
+			position: relative;
+			z-index: 2;
+			[class^="icon-"],
+			[class*=" icon-"] {
+				font-size: 12px;
+			}
+		}
+	}
+	.active .btn {
+		background-color: @linkColor;
+		border-color: @linkColor;
+		color: @white;
+		&:hover {
+			background-color: darken(@linkColor,15%);
+			border-color: darken(@linkColor,15%);
+		}
+		&.active,
+		&:active {
+			background-color: @cello;
+			border-color: @cello;
+		}
+		&.btn-remove {
+			border-left-color: @workspaceNavbarBackground;
+		}
+	}
+}
+.workspace-history {
+	.nav-header {
+		white-space: nowrap;
+	}
+}
+
+// Navigation Bar Search
+.navbar-search {
+	display: inline-block;
+	float: none;
+	margin: 0 0 0 10px;
+	text-align: left;
+	vertical-align: top;
+	.input-append .search-query {
+		border-color: @navbarSearchBackground;
+		.border-radius(@btnBorderRadius 0 0 @btnBorderRadius);
+		.box-shadow(~"none");
+		color: @grayDark;
+		font-size: @baseFontSize - 2;
+		height: 20px;
+		line-height: 1; // Centers input placeholders vertically.
+		padding: 2px 4px;
+		@transition: border linear .2s, background linear .2s;
+		.transition(@transition);
+		&:focus {
+			background-color: @navbarSearchBackgroundFocus;
+			border: 1px solid @navbarSearchBackgroundFocus;
+			+ .btn-icon {
+				background-color: @navbarSearchBackgroundFocus;
+				border-color: @navbarSearchBackgroundFocus;
+			}
+		}
+	}
+	.input-append .btn-icon {
+		.border-radius(0 @btnBorderRadius @btnBorderRadius 0);
+		margin: 0;
+		@transition: border linear .2s, background linear .2s;
+		.transition(@transition);
+	}
+}
+
+.navbar .collapse {
+	// We must change this to visible because there are dropdowns
+	// within our collapsible items that will otherwise get cutoff.
+	// This willundoubtably need to be made more specific so that
+	// it is only relevant to the navbar, but we'll cross that bridge
+	// when we get there.
+	overflow: visible;
+}
+
+// User Utilities/Search container
+// Contains the user-utilities dropdown and the nav search. We group these
+// to allow them to stay attached at the hip as responsive moves things
+// around the site.
+.user-utilities-and-search-container {
+	display: inline-block;
+	float: none;
+	margin: 0 0 12px;
+	text-align: left;
+	vertical-align: top;
+	.btn-group {
+		display: inline-block;
+		padding: 0;
+	}
+}
+.user-utilities-and-search-container .btn-group {
+	margin-left: 10px;
+}
+.user-utilities .btn [class^="icon-"],
+.user-utilities .btn [class*=" icon-"] {
+	// Format the chevron to appear as a normal dropdown icon,
+	// but then override this for the "user" icon that appears
+	// in responsive versions.
+	font-size: 12px;
+	margin-top: -2px;
+	margin-left: 5px;
+	&.icon-user {
+		display: none;
+		font-size: 18px;
+		margin-top: 0;
+		margin-left: 0;
+	}
+}
+.user-utilities .user-name {
+	// Force a maximum width to the name field that prevents wrapping
+	// with the search box at the smallest responsive sizes.
+	display: inline-block;
+	max-width: 148px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	vertical-align: middle;
+	white-space: nowrap;
+}
+.user-utilities .dropdown-menu {
+	margin-top: 8px;
+}
+.primary-navbar .user-utilities-and-search-container {
+	display: block;
+	line-height: 0;
+	margin: 15px 0 5px;
+	.input-prepend,
+	.input-append {
+		margin-bottom: 0;
+	}
+	&:first-child .btn-group {
+		margin-left: 0;
+	}
+	.search-query {
+		background-color: @grayDark;
+		border-color: @grayDark;
+	}
+	.open .dropdown-toggle {
+		color: @textColor;
+	}
+	.dropdown-menu {
+		margin-top: 5px;
+	}
+}
+.primary-navbar .notifications + .user-utilities-and-search-container {
+	display: inline-block;
+	margin: 15px @gridGutterWidth 0 0;
+}
+
+// Notifications container
+.notifications {
+	display: inline-block;
+	float: none;
+	margin-right: 0;
+	text-align: left;
+	vertical-align: top;
+}
+.notifications .dropdown-menu li {
+	margin-top: 5px;
+	padding-top: 5px;
+}
+.notifications .dropdown-menu li.empty {
+	text-align: center;
+	padding: 15px 0 !important;
+}
+.notifications .btn-group {
+	margin-left: 5px;
+}
+.masthead .notifications .dropdown-menu {
+	// Adjust alignment to consider margins on toggle button.
+	margin-top: 9px;
+}
+.primary-navbar .notifications {
+	line-height: 0;
+	margin: 8px 0 0;
+	.btn-group:first-child {
+		margin-left: 0;
+	}
+}
+
+// Navbar buttons
+.navbar .navbar-inner .btn {
+	&-danger {
+		background-color: @btnDangerBackground;
+		border-color: @btnDangerBackground;
+		color: @white;
+		&:hover {
+			background-color: @btnDangerBackgroundHighlight;
+			border-color: @btnDangerBackgroundHighlight;
+		}
+		&:active,
+		&.active {
+			background-color: darken(@btnDangerBackground,15%);
+			border-color: darken(@btnDangerBackground,15%);
+		}
+	}
+}
+
+// Typeahead
+.navbar .typeahead {
+	margin-top: 2px;
+}
+.typeahead-faceted {
+	background-color: @porcelain;
+	width: 167%;
+}
+.typeahead-faceted > ul {
+	margin: 0;
+}
+.facet { 
+	.clearfix;
+	width: 100%; 
+}
+.facet-name {
+	.box-sizing(~"border-box");
+	color: @textColor;
+	float: left;
+	line-height: 30px;
+	padding: 0 15px;
+	position: relative;
+	text-align: right;
+	top: 1px;
+	white-space: nowrap;
+	width: 40%;
+}
+.typeahead-faceted > ul > li:last-child,
+.facet-results {
+	background-color: @white;
+	border-color: @btnBorder;
+	border-style: solid;
+	border-width: 1px 0 0 1px;
+	.box-sizing(~"border-box");
+	float: right;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	width: 60%;
+}
+.typeahead-faceted > ul > li:first-child {
+	margin-top: -4px;
+	.facet-results {
+		border-top: 0;
+		.border-radius( 0 @btnBorderRadius 0 0 );
+	}
+}
+.typeahead-faceted > ul > li:last-child {
+	.border-radius( 0 0 @btnBorderRadius 0 );
+	margin-bottom: -4px;
+	a {
+		&:hover {
+			background-color: @linkColor;
+		}
+	}
+}

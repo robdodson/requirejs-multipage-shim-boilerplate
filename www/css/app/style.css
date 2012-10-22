@@ -1,0 +1,19 @@
+@import 'style2.css';
+
+label {
+    color: #8B8080;
+    margin-bottom: 5px;
+}
+
+.input-prepend {
+    margin-bottom: 10px;
+}
+
+.important-paragraph {
+    margin: 20px 0 30px;
+}
+
+.loud {
+    font-weight: bold;
+    color: #ED8000;
+}

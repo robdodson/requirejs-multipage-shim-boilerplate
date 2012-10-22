@@ -8,6 +8,7 @@
 - [The HTML](#the-html)
 - [The JavaScript](#the-javascript)
 - [The CSS](#the-css)
+- [Compiling with r.js](#compiling)
 
 ## Introduction <a id="intro"></a>
 Hi! I'm going to walk you through the process of setting up and understanding a multipage IIDS/Require.js project. The IIDS is designed to work as effortlessly as possible with [Require.js](http://requirejs.org/) and hopefully after this brief tutorial you'll be comfortably cranking out code in no time.
@@ -104,7 +105,7 @@ This is where we load Require.js and tell it which script to execute for this pa
 <hr>
 
 ## The JavaScript <a id="the-javascript"></a>
-Before Require.js you would normally have several script tags at the bottom of the page for including your various libraries and application specific code. You might add jQuery, Highcharts and libraries of your own scripts before kicking things off with a main.js or page specific .js file.
+Before Require.js you would normally have several script tags at the bottom of the page for including your various libraries and application specific code. You might add jQuery, Highcharts and libraries of your own before kicking things off with a main.js file.
 
 ``` html
 <script src="js/vendor/jquery.js"></script>
@@ -121,7 +122,7 @@ When you place script tags on the page like this you're telling the browser to t
 - Developers want discrete JS files/modules
 - Deployment wants optimized code in just one or a few HTTP calls
 
-As we build bigger and more complex web apps we'd like to split our scripts up so they don't all live in one mammoth main.js file. This makes the code more organized and it makes it easier for teams to work on a project. The immediate downside is that the browsers don't offer a built in dependency managment system. Let's say we stick to our previous approach of including multiple script tags on the page but this time we decide to break main.js up so instead of containing all of our code, it just contains the code to drive two widgets: Widget A and Widget B. We'll take all the code for our widgets and place it into two separate files. That way our team members can work on Widget A and Widget B while we work on something else.
+As we build bigger and more complex web apps we'd like to split our scripts up so they don't all live in one mammoth main.js file. This makes the code more organized and it makes it easier for teams to work on a project. The immediate downside is that the browsers don't offer a built in dependency managment system. Let's say we stick to our previous approach of including multiple script tags on the page but this time we decide to break up main.js into smaller files. Instead of containing all of our code, it now only contains the code to drive two widgets: Widget A and Widget B. We'll take all the code for our widgets and place it into two separate files. That way our team members can work on Widget A and Widget B while we work on something else.
 
 ``` html
 <script src="js/vendor/jquery.js"></script>
@@ -140,9 +141,9 @@ What we need is a tool that can give us the following features:
 - The ability to load nested dependencies
 - Easy to use for development but then backed by an optimization tool that helps deployment
 
-Thankfully that toolsets exists in [Require.js](http://requirejs.org/) and [r.js.](http://requirejs.org/docs/optimization.html) Before I get too far ahead of myself I want to say that explaining the full breadth of Require.js, r.js and AMD modules is outside the scope of this article so I strongly encourage you to take a moment to [read through the Require.js site](http://requirejs.org/) to familiarize yourself with these tools.
+Thankfully that tool set exists in [Require.js](http://requirejs.org/) and [r.js.](http://requirejs.org/docs/optimization.html) Before I get too far ahead of myself I want to say that explaining the full breadth of Require.js, r.js and AMD modules is outside the scope of this article so I strongly encourage you to take a moment to [read through the Require.js site](http://requirejs.org/) to augment your understanding of these topics. I'll do my best to explain how we've used these tools in the tutorial but be sure to read the rest of the documentation when you have spare time as it will undoubtedly come in handy.
 
-Ok. Introduction's outta the way, let's see how to use Require.js on a multipage site. The structure that we're using in this demo is taken from the [example-multipage-shim project](https://github.com/requirejs/example-multipage-shim) created by James Burke, author of Require.js. Here are the key points to keep in mind:
+OK. Introduction's out of the way, let's see how to use Require.js on a multipage site. The structure that we're using in this demo is taken from the [example-multipage-shim project](https://github.com/requirejs/example-multipage-shim) created by James Burke, author of Require.js. Here are the key points to keep in mind:
 
 - Each page uses a mix of common and page-specific modules.
 - All pages share the same [requirejs config.](http://requirejs.org/docs/api.html#config)
@@ -151,10 +152,10 @@ Ok. Introduction's outta the way, let's see how to use Require.js on a multipage
 - shim config is used to load non-AMD scripts.
 
 ### common.js
-Take a look at the `common.js` file and you'll see that it contains configuration options for require.js. If you haven't done so yet take a moment [to read up on how configuration works in require.js.](http://requirejs.org/docs/api.html#config) We've gone ahead and populated this file with configuration settings for every plugin in the IIDS. If you need to add additional libraries this is the place to do it. Feel free to edit this file and add any scripts that your project requires.
+As a starting point take a look at the `common.js` file and you'll see that it contains configuration options for require.js. If you haven't done so yet take a moment [to read up on how configuration works in require.js.](http://requirejs.org/docs/api.html#config) We've gone ahead and populated this file with configuration settings for every plugin in the IIDS. If you need to add additional libraries this is the place to do it. Feel free to edit this file and add any scripts that your project requires.
 
 #### baseUrl
-The `baseUrl` tells require.js where to start when loading a module. In our case we tell it to start looking in the `js/` folder.
+The `baseUrl` tells require.js where to look when asked to load a module. In our case we tell it to start looking in the `js/` folder.
 
 #### paths
 You'll notice that there are several `paths` which tell require.js how to find a particular file. For instance, `require('d3')` translates to `baseUrl + paths['d3']` or `js/vendor/d3.v2`.
@@ -243,13 +244,18 @@ function ($, model) {
     });
 });
 ```
-As our dependencies are resolved they're passed into our callback function as arguments. Actually I should point out that only `jQuery` and `model1` are passed in since the `iids-navbar` is a jQuery plugin it doesn't actually export a value.
+As the dependencies are resolved they're passed into our callback function as arguments. Actually I should point out that only `jQuery` and `model1` are passed in since the `iids-navbar` is a jQuery plugin which doesn't export a value.
 
-We use the jQuery DOM Ready shorthand to populate a few elements on the page with data from our `model1` object. If you've ever worked with jQuery before this should all seem pretty vanilla to you. Keep in mind that this is just an example of one way to get data on the page and if you prefer to populate your pages with data on the server before sending them to the client that's fine as well.
+We use the jQuery [DOM Ready shorthand](http://api.jquery.com/ready/) to populate a few elements on the page with data from our `model1` object. If you've worked with jQuery before this should all seem pretty familiar to you. Keep in mind that this is just an example of one way to get data on the page and if you prefer to populate your pages with data on the server before sending them to the client that's fine as well.
+
+When you're done exploring this page take a look at `page2.html` and the corresponding `main2.js`. You'll find that the pages and their corresponding JavaScript files are very similar. When you're ready to production you can take a look at the [Compiling with r.js section.](#compiling)
 
 <hr>
 
 ## The CSS <a id="the-css"></a>
+
+
+## Compiling with r.js <a id="compiling"></a>
 
 `node tools/r.js -o tools/build.js`
 

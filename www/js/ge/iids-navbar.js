@@ -4,6 +4,7 @@
 require([
     'jquery',
     'bootstrap/bootstrap-collapse',
+    'bootstrap/bootstrap-tooltip',
     'bootstrap/bootstrap-transition'
 ], function ($) {
     $(function () {

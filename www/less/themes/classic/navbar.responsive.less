@@ -1,0 +1,191 @@
+// RESPONSIVE NAVBAR
+// -----------------
+
+// UP TO LANDSCAPE PHONE
+@media (max-width: 480px) {
+	.masthead .notifications {
+		// This makes the responsive movement a bit smoother.
+		display: none;
+	}
+	.primary-navbar {
+		.nav {
+			float: none;
+			padding: 5px 0 10px;
+			> li {
+				float: none;
+				margin: 0 -@gridGutterWidth;
+				> a {
+					padding: 5px @gridGutterWidth;
+				}
+			}
+		}
+		.user-utilities-and-search-container {
+			float: none !important;
+			margin: 15px 0 0 !important;
+			.input-medium {
+				width: 60px !important;
+			}
+			.user-utilities .btn .icon-user {
+				display: inline;
+			}
+			.user-utilities .user-name {
+				display: none;
+			}
+		}
+	}
+	.workspace-navbar .nav {
+		margin-left: -10px;
+		margin-right: -10px;
+	}
+	.typeahead-faceted {
+		background-color: @white;
+		padding-top: 10px;
+		width: 50% !important;
+	}
+	.facet-name {
+		.box-sizing(~"content-box");
+		color: @grayLight;
+		float: none;
+		font-size: @baseFontSize - 3;
+		font-weight: bold;
+		line-height: 1;
+		margin: 5px 0;
+		padding: 0 15px;
+		position: static;
+		text-align: left;
+		text-transform: uppercase;
+		width: auto;
+	}
+	.typeahead-faceted > ul > li:last-child,
+	.facet-results {
+		background-color: @white;
+		border-width: 0;
+		.box-sizing(~"content-box");
+		float: none;
+		padding-top: 3px;
+		padding-bottom: 3px;
+		width: auto;
+	}
+	.typeahead-faceted > ul > li:last-child {
+		border-top-width: 1px;
+	}
+	.mega-dropdown {
+		background-color: transparent;
+		border-width: 0 0 1px;
+		left: auto !important;
+		margin-bottom: 5px;
+		width: 100% !important;
+		.nav {
+			margin: 5px 0 !important;
+			padding: 0 !important;
+			> li {
+				margin: 0 !important;
+				> a {
+					color: @grayLight !important;
+					padding-left: 18px !important;
+					&:hover {
+						background-color: transparent !important;
+						color: @white !important;
+					}
+					&.active {
+						background-color: @linkColor !important;
+					}
+				}
+			}
+		}
+	}
+}
+
+// LANDSCAPE PHONE TO SMALL DESKTOP & PORTRAIT TABLET
+@media (max-width: 767px) {
+	.navbar {
+		// Keep our navbar extended to the edges in all sizes.
+		margin: 0 -20px 20px;
+	}
+	.navbar-inner {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	.navbar .container {
+		margin: 0 @gridGutterWidth;
+	}
+	.navbar .brand small {
+		// Kill the brand subtext at small sizes.
+		display: none;
+	}
+}
+
+// Landscape phone to Landscape tablet
+@media (min-width: 768px) and (max-width: 979px) {
+	// Re-prime the grid for this size.
+	#grid > .core(42px, 20px);
+	// Resize navbar container for new grid width.
+	.navbar .container {
+		#grid > .core > .span(@gridColumns);
+	}
+	.masthead .user-utilities-and-search-container {
+		// This makes the responsive movement a bit smoother.
+		display: none;
+	}
+}
+
+// Tablets and below
+@media (max-width: 979px) {
+	.navbar .brand {
+		// No padding on the brand at smaller sizes!
+		margin: -6px 0 0 -3px;
+		padding: 0;
+	}
+	.navbar .nav {
+		margin-right: 0;
+	}
+	.masthead .btn-collapse {
+		// Time to show our collapse button.
+		display: block;
+	}
+	.masthead .user-utilities-and-search-container {
+		// This makes the responsive movement a bit smoother.
+		display: none;
+	}
+	.primary-navbar {
+		// Convert our primary navbar items to be full-width,
+		// block-level items instead of floated inline.
+		min-height: 0;
+		padding: 0;
+		.user-utilities-and-search-container {
+			float: right;
+			margin: 6px 0;
+			.input-medium {
+				#grid > .core > .span(1.5);
+			}
+		}
+		.workspace-history {
+			// Kill the workspace dropdown.
+			display: none;
+		}	
+	}
+	.workspace-navbar {
+		// Show the workspace header and don't force a min-height.
+		min-height: 0;
+		.nav > li.nav-header {
+			display: block;
+		}
+	}
+	.navbar .collapse {
+		// Now is the time that collapsible items should be hiding.
+		overflow: hidden;
+	}
+	.typeahead-faceted {
+		width: 233%;
+	}
+}
+
+// Large desktop
+@media (min-width: 1200px) {
+	// Re-prime the grid for this size.
+	#grid > .core(70px, 30px);
+	// Resize navbar container for new grid width.
+	.navbar .container {
+		#grid > .core > .span(@gridColumns);
+	}
+}

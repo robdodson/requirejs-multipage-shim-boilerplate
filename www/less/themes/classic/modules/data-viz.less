@@ -1,0 +1,170 @@
+// GLOBAL STYLES
+// -------------------
+.module-data-viz {
+	.caption {
+		margin-bottom: 0;
+		font-family: @sansFontFamily;
+		font-size: 0.85em;
+		color: @grayDark;
+		&.hero {
+			font-family: @brandFontFamily;
+			font-weight: normal;
+			font-size: 1.2em;
+			color: @black;
+			strong {
+				font-size: 2em;
+				font-weight: bold;
+			}
+		}
+	}
+	.subtitle {
+		font-weight: bold;
+	}
+
+	#bars {
+		.subtitle {
+			margin-bottom: 0;
+		}
+	}
+	&#gauges {
+		> div {
+			float: left;
+			.box-sizing(~"border-box");
+			padding-right: 15px;
+			width: 33.3%;
+		}
+	}
+	&#bars {
+		vertical-align: top;
+	}
+	
+	svg {
+		width: 100%;
+		height: 100%;
+	}
+}
+
+
+// Bar chart
+[data-visualization="bar"] {
+	height: 120px;
+	margin-bottom: 25px;
+}
+
+// Donut chart
+[data-visualization="donut"] {
+	height: 170px;
+	text.pie-label {
+		fill: @grayDark;
+		font-size: 9pt;
+	}
+	.arc {
+		stroke: white;
+		stroke-width: 1;
+	}
+	.whisker {
+		stroke: @gray;
+		stroke-width: 1;
+	}
+	.legend {
+		font-size: @baseFontSize - 2;
+		line-height: 1.2em;
+	}
+}
+
+// Gauge chart
+[data-visualization="gauge"] {
+	height: 120px;
+	margin-bottom: 20px;
+	width: 100%;
+	// background-color: cornsilk;
+	&.chart1 path.bg {
+		fill: @green;
+	}
+	&.chart2 path.bg {
+		fill: @cyan;
+	}
+	&.chart3 path.bg {
+		fill: @purple;
+	}
+	&.chart4 path.bg {
+		fill: @red;
+	}
+	text.label {
+		fill: @grayDark;
+		#voice > .data( 12px, normal );
+	}
+}
+
+// Chart colors
+
+
+//
+// SVG styling for data visualizations
+// 
+
+svg.visualization-bar {
+    rect {
+		&.fg {
+			fill: @orange;
+		}
+		&.bg{
+			fill: @grayLighter;
+		}
+    }
+    .tick {
+    	fill: @white;
+    }
+	text.num {
+		#voice > .brand( 75px, normal );
+	}
+}
+
+// RESPONSIVE OVERRIDES
+// --------------------
+
+// Tablets and below
+@media (max-width: 979px) {
+	.module-data-viz {
+		[data-visualization="gauge"] {
+			height: 100px;
+			// background-color: burlywood;
+		}
+		[data-visualization="bar"] {
+			height: 95px;
+			// background-color: burlywood;
+		}
+	}
+}
+
+// Landscape phone, small desktop and portait tablet
+@media (max-width: 767px) {
+	.module-data-viz {
+		[data-visualization="gauge"] {
+			// height: 100px;
+		}
+	}
+}
+
+// Portrait phone
+@media (max-width: 480px) {
+	.module-data-viz {
+		[data-visualization="gauge"] {
+			// height: 100px;
+		}
+	}
+
+	// TODO pull this out - it is page-specific
+	// XXX can this be removed?
+	.module-data-viz {
+		&#gauges > div {
+			float: none;
+			margin-top: 15px;
+			padding-right: 0;
+			width: 100%;
+			&:first-child {
+				margin-top: 0;
+			}
+		}
+	}
+}

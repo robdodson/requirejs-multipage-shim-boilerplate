@@ -1,0 +1,35 @@
+.module-snapshot {
+    background-color: @porcelain;
+    .border-radius(@btnBorderRadius);
+    .module:first-child {
+        margin-left: 0;
+    }
+    .module:first-child + .module {
+        background: none;
+        margin-left: 10px;
+    }
+}
+
+// RESPONSIVE OVERRIDES
+// --------------------
+
+// Tablets and below
+@media (max-width: 979px) {
+    .module-snapshot {
+        .module:first-child + .module {
+            margin-left: 10px;
+            font-size: 11px;
+        }
+    }
+}
+
+// Landscape phone, small desktop and portait tablet
+@media (max-width: 767px) {
+    .module-snapshot {
+        max-height: 580px;
+        .module:first-child + .module {
+            margin-left: 10px;
+            font-size: 14px;
+        }
+    }
+}

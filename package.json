@@ -1,0 +1,10 @@
+{
+    "name": "multipage-demo",
+    "author": "General Electric",
+    "version": "0.0.1",
+    "private": true,
+    "dependencies": {
+      "grunt-contrib-mincss":   "0.3.x",
+      "grunt-contrib-clean":    "0.3.x"
+  }
+}

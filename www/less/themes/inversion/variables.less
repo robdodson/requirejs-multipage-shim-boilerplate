@@ -1,0 +1,276 @@
+// Variables.less
+// Variables to customize the look and feel of Bootstrap
+// -----------------------------------------------------
+
+// GLOBAL VALUES
+// --------------------------------------------------
+
+// Color Palette (http://chir.ag/projects/name-that-color/)
+// -------------------------
+@athensgray:			#f7f8fa;  // button background, table-striping
+@bluesteel:				#3b73b9;  // GE blue
+@cello:					#22436b;  // GE blue (darker)
+@iron:					#e1e2e5;  // page background
+@oslogray:				#999c9f;  // icon color on dark
+@poloblue:				#89abd5;  // GE blue (lighter)
+@porcelain:             #edeeef;  // highlight background
+@shark:					#313337;  // text color
+@shuttlegray:			#5c5f63;  // icon color on light
+@silversand:			#bfc2c5;  // navbar text
+@white:					#fff;     // module background
+@woodsmoke:				#13161a;  // masthead background
+
+// Charting Palette
+// -------------------------
+@cyan:					#08a5e1;
+@cyanLight:				#6bc9ed;
+@cyanDark:				#056083;
+@green:                 #76b900;
+@greenLight:			#add566;
+@greenDark:				#446b00;
+@red:                   #ee3324;
+@redLight:				#f5857c;
+@redDark:				#8a1e15;
+@orange:                #ed8000;
+@orangeLight:			#f4b366;
+@orangeDark:			#ca4d00;
+@purple:				#711371;
+@purpleLight:			#aa71aa;
+@purpleDark:			#420b42;
+
+// Bootstrap Grays
+// -------------------------
+@black:                 @woodsmoke;
+@grayDarker:            @shark;
+@grayDark:              @shuttlegray;
+@gray:                  @oslogray;
+@grayLight:             @silversand;
+@grayLighter:           @iron;
+
+// Bootstrap Accent Colors
+// -------------------------
+@blue:                  @bluesteel;
+@blueDark:              @cello;
+
+// Scaffolding
+// -------------------------
+@bodyBackground:        @black;
+@textColor:             @porcelain;
+
+
+// Links
+// -------------------------
+@linkColor:             @poloblue;
+@linkColorHover:        @blue;
+
+
+// Typography
+// -------------------------
+@sansFontFamily:        Arial, "Helvetica Neue", Helvetica, sans-serif;
+@serifFontFamily:       "meta-serif", Georgia, serif;
+@monoFontFamily:        Inconsolata, Consolas, monospace;
+@brandFontFamily:		"ge-inspira", Arial, "Helvetica Neue", Helvetica, sans-serif;
+
+@baseFontSize:          14px;
+@baseFontFamily:        @sansFontFamily;
+@baseLineHeight:        20px;
+@altFontFamily:         @serifFontFamily;
+
+@headingsFontFamily:    inherit; // empty to use BS default, @baseFontFamily
+@headingsFontWeight:    bold;    // instead of browser default, bold
+@headingsColor:         inherit; // empty to use BS default, @textColor
+
+
+// Tables
+// -------------------------
+@tableBackground:                   transparent; // overall background-color
+@tableBackgroundAccent:             @mako; // for striping
+@tableBackgroundHover:              @gray; // for hover
+@tableBorder:                       @grayDark; // table and cell border
+
+
+// Buttons
+// -------------------------
+@btnBackground:                     @mako;
+@btnBackgroundHighlight:            darken(@mako,10%);
+@btnBorder:                         @mako;
+@btnBorderRadius:					3px;
+
+@btnPrimaryBackground:              @black;
+@btnPrimaryBackgroundHighlight:     darken(@black,10%);
+
+@btnInfoBackground:                 @cyan;
+@btnInfoBackgroundHighlight:        darken(@cyan,10%);
+
+@btnSuccessBackground:              @green;
+@btnSuccessBackgroundHighlight:     darken(@green,10%);
+
+@btnWarningBackground:              @orange;
+@btnWarningBackgroundHighlight:     darken(@orange,10%);
+
+@btnDangerBackground:               @red;
+@btnDangerBackgroundHighlight:      darken(@red,10%);
+
+@btnInverseBackground:              @athensgray;
+@btnInverseBackgroundHighlight:     darken(@athensgray,10%);
+
+
+// Forms
+// -------------------------
+@inputBackground:               @mako;
+@inputBorder:                   @mako;
+@inputBorderRadius:             0;
+@inputDisabledBackground:       @grayLight;
+@formActionsBackground:         @mako;
+
+// Dropdowns
+// -------------------------
+@dropdownBackground:            @mako;
+@dropdownBorder:                @mako;
+@dropdownLinkColor:             @grayDark;
+@dropdownLinkColorHover:        @white;
+@dropdownLinkBackgroundHover:   @linkColor;
+@dropdownDividerTop:            @btnBorder;
+@dropdownDividerBottom:         @white;
+
+
+
+// COMPONENT VARIABLES
+// --------------------------------------------------
+
+// Z-index master list
+// -------------------------
+// Used for a bird's eye view of components dependent on the z-axis
+// Try to avoid customizing these :)
+@zindexDropdown:          1000;
+@zindexPopover:           1010;
+@zindexTooltip:           1030;
+@zindexFixedNavbar:       1020;
+@zindexModalBackdrop:     1040;
+@zindexModal:             1050;
+
+
+// Sprite icons path
+// -------------------------
+@iconSpritePath:          "../img/iids/glyphicons-halflings.png";
+@iconWhiteSpritePath:     "../img/iids/glyphicons-halflings-white.png";
+
+
+// Input placeholder text color
+// -------------------------
+@placeholderText:         @gray;
+
+
+// Hr border color
+// -------------------------
+@hrBorder:                @grayLighter;
+
+
+// Navbar
+// -------------------------
+@navbarHeight:                    40px;
+@navbarBackground:                @black;
+@navbarBackgroundHighlight:       @black;
+
+@navbarText:                      @grayLight;
+@navbarLinkColor:                 @grayLight;
+@navbarLinkColorHover:            @white;
+@navbarLinkColorActive:           @navbarLinkColorHover;
+@navbarLinkBackgroundHover:       transparent;
+@navbarLinkBackgroundActive:      @navbarBackground;
+
+@navbarSearchBackground:          @grayDarker;
+@navbarSearchBackgroundFocus:     @white;
+@navbarSearchBorder:              @grayDarker;
+@navbarSearchPlaceholderColor:    #ccc;
+@navbarBrandColor:                @navbarLinkColor;
+
+// Primary Navbar
+// -------------------------
+
+@primaryNavbarHeight:                    40px;
+@primaryNavbarBackground:                @grayDarker;
+@primaryNavbarBackgroundHighlight:       @grayDarker;
+
+@primaryNavbarText:                      @grayLight;
+@primaryNavbarLinkColor:                 @grayLight;
+@primaryNavbarLinkColorHover:            @white;
+@primaryNavbarLinkColorActive:           @primaryNavbarLinkColorHover;
+@primaryNavbarLinkBackgroundHover:       transparent;
+@primaryNavbarLinkBackgroundActive:      @primaryNavbarBackground;
+
+// Workspace Navbar
+// -------------------------
+
+@workspaceNavbarBackground:                @grayLighter;
+@workspaceNavbarBackgroundHighlight:       @grayLighter;
+
+@workspaceNavbarText:                      @grayLight;
+@workspaceNavbarLinkColor:                 @grayLight;
+@workspaceNavbarLinkColorHover:            @white;
+@workspaceNavbarLinkColorActive:           @workspaceNavbarLinkColorHover;
+@workspaceNavbarLinkBackgroundHover:       transparent;
+@workspaceNavbarLinkBackgroundActive:      @blue;
+
+// Item Navbar
+// -------------------------
+
+@itemNavbarHeight:                    40px;
+@itemNavbarBackground:                @grayLight;
+@itemNavbarBackgroundHighlight:       @grayLight;
+
+@itemNavbarText:                      @grayDarker;
+@itemNavbarLinkColor:                 @grayDarker;
+@itemNavbarLinkColorHover:            @black;
+@itemNavbarLinkColorActive:           @itemNavbarLinkColorHover;
+@itemNavbarLinkBackgroundHover:       transparent;
+@itemNavbarLinkBackgroundActive:      @itemNavbarBackground;
+@itemNavbarBrandColor:                @itemNavbarLinkColor;
+
+// Hero unit
+// -------------------------
+@heroUnitBackground:              @grayLighter;
+@heroUnitHeadingColor:            inherit;
+@heroUnitLeadColor:               inherit;
+
+
+// Form states and alerts
+// -------------------------
+@warningText:             @orange;
+@warningBackground:       lighten(@orangeLight,20%);
+@warningBorder:           lighten(@orangeLight,20%);
+
+@errorText:               @red;
+@errorBackground:         lighten(@redLight,20%);
+@errorBorder:             lighten(@redLight,20%);
+
+@successText:             @green;
+@successBackground:       lighten(@greenLight,20%);
+@successBorder:           lighten(@greenLight,20%);
+
+@infoText:                @cyan;
+@infoBackground:          lighten(@cyanLight,20%);
+@infoBorder:              lighten(@cyanLight,20%);
+
+
+
+// GRID
+// --------------------------------------------------
+
+// Default 940px grid
+// -------------------------
+@gridColumns:             12;
+@gridColumnWidth:         60px;
+@gridGutterWidth:         20px;
+@gridRowWidth:            (@gridColumns * @gridColumnWidth) + (@gridGutterWidth * (@gridColumns - 1));
+
+// Fluid grid
+// -------------------------
+@fluidGridColumnWidth:    6.382978723%;
+@fluidGridGutterWidth:    2.127659574%;
+
+
+// CHART
+// ----------------------------------------------------
+
+@color1: #c0ffee;
