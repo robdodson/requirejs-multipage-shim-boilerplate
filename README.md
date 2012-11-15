@@ -57,7 +57,7 @@ The example project uses [gruntjs](http://gruntjs.com/) to build its distributio
 <hr>
 
 ## The HTML <a id="the-html"></a>
-OK so you know where everything lives, now let's take a tour around the demo. The pages in this project are designed to give you a nice boilerplate to start experimenting with but by no means do they include or encompass all of the features of the IIDS. Be sure to thoroughly read through the IIDS documentation on the [GE SDH](http://www.gesdh.com/) for a deeper understanding of what all is included in the IIDS.
+OK so you know where everything lives, now let's take a tour around the demo. The pages in this project are designed to give you a nice boilerplate to start experimenting with but by no means do they include or encompass all of the features of the IIDS. Be sure to thoroughly read through the IIDS documentation on the [GE SDH](http://www.gesdh.com/) for a deeper understanding of what all is included.
 
 ### Modernizr & Respond.js
 To start off you can open the `page1.html` file. One of the first things you might notice is this crazy header.
@@ -70,7 +70,7 @@ To start off you can open the `page1.html` file. One of the first things you mig
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 ```
-Have no fear, your page hasn't blown up, this is just part of [Modernizr.](http://modernizr.com/) It's used for feature detection so after your page has loaded you can look at the `html` tag to see what browser features are and aren't supported. Be sure to read the Modernizr docs if you're attempting to use something potentially not supported by all browsers (SVG, media queries, etc).
+Have no fear, your page hasn't blown up, this is just part of [Modernizr.](http://modernizr.com/) It's used for feature detection so after your page has loaded you can look at the `html` tag to see what browser features are supported by the client. Be sure to read the Modernizr docs if you're attempting to use something potentially not supported by all browsers (SVG, media queries, etc).
 
 In the `head` tag you'll see that we've included `modernizr-respond.js`, a custom build of modernizr which includes respond.js to shim media query support into Internet Explorer 8. You shouldn't need to mess with this line, just know that it's there.
 
@@ -139,22 +139,12 @@ When you place script tags on the page like this you're telling the browser to t
 - Developers want discrete JS files/modules
 - Deployment wants optimized code in just one or a few HTTP calls
 
-As we build bigger and more complex web apps we'd like to split our scripts up so they don't all live in one mammoth main.js file. This makes the code more organized and it makes it easier for teams to work on a project. The immediate downside is that the browsers don't offer a built in dependency managment system. Let's say we stick to our previous approach of including multiple script tags on the page but this time we decide to break up main.js into smaller files. Instead of containing all of our code, it now only contains the code to drive two widgets: Widget A and Widget B. We'll take all the code for our widgets and place it into two separate files. That way our team members can work on Widget A and Widget B while we work on something else.
-
-``` html
-<script src="js/vendor/jquery.js"></script>
-<script src="js/vendor/highcharts.js"></script>
-<script src="js/vendor/my.awesome.library.js"></script>
-<script src="js/vendor/widget.a.js"></script>
-<script src="js/vendor/widget.b.js"></script>
-<script src="js/vendor/main.js"></script>
-```
-This looks ok but when we try to run it everything breaks. It turns out Widget A depends on a piece of Widget B, but Widget B won't load until Widget A has finished downloading. We could extract the code from Widget B and make a new widget (Widget C) which loads before A or B but that means having to mentally manage this dependency chain and any new ones that arise. It also means that we're increasing the number of HTTP requests for each page since it now needs to load all of our 3rd party JavaScript, Widgets A - C and our main.js. Not cool :[
+As we build bigger and more complex web apps we'd like to split our scripts up so they don't all live in one mammoth main.js file. This makes the code more organized and it makes it easier for teams to work on a project. The immediate downside is that the browsers don't offer a built in dependency managment system. As your scripts begin to depend on one another managing who gets loaded and in what order can become a nightmarish task.
 
 ### The Solution
 What we need is a tool that can give us the following features:
 
-- Some sort of #include/import/require
+- Some sort of #include/import/require function
 - The ability to load nested dependencies
 - Easy to use for development but then backed by an optimization tool that helps deployment
 

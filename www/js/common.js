@@ -6,7 +6,7 @@
 //except for 'app' ones, which are in a sibling
 //directory.
 requirejs.config({
-    baseUrl: 'js/',
+    baseUrl: '/js/',
     paths: {
         'jquery':                                   'vendor/require-jquery',
         'bootstrap':                                'vendor/bootstrap',

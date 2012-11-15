@@ -11,7 +11,17 @@ module.exports = {
       //List common dependencies here. Only need to list
       //top level dependencies, "include" will find
       //nested dependencies.
-      include: ["app/models/basicModel"]
+      include: [
+        "app/models/basicModel",
+        "ge/iids-navbar"
+      ],
+      //Since we bundle jquery with require.js we don't need
+      // to additionally compile it into this layer. It will
+      // already be available on the page as part of the 
+      // script tag that pulls in require.js
+      // ex: page1.html
+      // <script src="js/vendor/require-jquery.js"></script>
+      exclude: ["jquery"]
     },
 
     //Now set up a build layer for each main layer, but exclude

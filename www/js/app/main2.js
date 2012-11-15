@@ -16,5 +16,8 @@ function ($, model) {
 
         // Activate the bootstrap popover plugin
         $('[rel=popover]').popover();
+
+        // Tooltip our 'loud' elements
+        $('.loud').tooltip({ title: 'Hello friend!'});
     });
 });

@@ -122,14 +122,19 @@
     </div>
     <!--
     Scripts, with the exception of modernizr, go at the bottom of the page
-    to improve load time. Note that our `data-main` attribute for this page
-    is different than page1.html.
+    to improve load time.
     -->
     <script src="js/vendor/require-jquery.js" type="text/javascript"></script>
     <script type="text/javascript">
     // Load common code that includes config,
     // then load the app logic for this page.
-    require(['./js/common'], function (common) {
+    // Because we're using an absolute path we have to
+    // include the .js extension
+    require(['/js/common.js'], function (common) {
+      // /js/common.js sets the baseUrl to be /js/ and
+      // defines a shortcut for /js/app/ called 'app'. 
+      // You can ask for 'app/main2' here instead
+      // of '/js/app/main2'
       require(['app/main2']);
     });
     </script>

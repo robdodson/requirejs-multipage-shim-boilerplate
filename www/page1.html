@@ -121,16 +121,19 @@
     </div>
     <!--
     Scripts, with the exception of modernizr, go at the bottom of the page
-    to improve load time. The `data-main` attribute tells require.js to
-    load `js/page1.js` after require.js loads. You do not need a `.js`
-    extension. Require.js is smart enough to know we're referring to a 
-    javascript file.
+    to improve load time.
     -->
     <script src="js/vendor/require-jquery.js"></script>
     <script type="text/javascript">
     // Load common code that includes config,
     // then load the app logic for this page.
-    require(['./js/common'], function (common) {
+    // Because we're using an absolute path we have to
+    // include the .js extension
+    require(['/js/common.js'], function (common) {
+      // /js/common.js sets the baseUrl to be /js/ and
+      // defines a shortcut for /js/app/ called 'app'. 
+      // You can ask for 'app/main1' here instead
+      // of '/js/app/main1'
       require(['app/main1']);
     });
     </script>
