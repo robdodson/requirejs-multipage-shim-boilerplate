@@ -21,7 +21,9 @@ module.exports = function(grunt) {
     mincss: {
       compile: {
         files: {
-          'www-release/css/app/style.css': 'www-release/css/app/style.css'
+          'www-release/css/style.css': 'www-release/css/style.css',
+          'www-release/css/bootstrap.css': 'www-release/css/bootstrap.css',
+          'www-release/css/bootstrap-responsive.css': 'www-release/css/bootstrap-responsive.css'
         }
       }
     }

@@ -1,6 +1,6 @@
 {
     "name": "multipage-demo",
-    "author": "General Electric",
+    "author": "Rob Dodson",
     "version": "0.0.1",
     "private": true,
     "dependencies": {
