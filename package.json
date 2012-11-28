@@ -1,11 +1,10 @@
 {
-    "name": "multipage-demo",
-    "author": "Rob Dodson",
-    "version": "0.0.1",
-    "private": true,
-    "dependencies": {
-      "grunt-contrib-mincss":       "0.3.x",
-      "grunt-contrib-requirejs":    "0.3.x",
-      "grunt-contrib-clean":        "0.3.x"
+  "name": "requirejs-multipage-shim-tutorial",
+  "author": "Rob Dodson <lets.email.rob@gmail.com>",
+  "version": "0.0.1",
+  "devDependencies": {
+    "grunt-contrib-mincss":       "0.3.x",
+    "grunt-contrib-requirejs":    "0.3.x",
+    "grunt-contrib-clean":        "0.3.x"
   }
 }
