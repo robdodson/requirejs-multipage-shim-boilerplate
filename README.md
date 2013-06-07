@@ -1,0 +1,1 @@
+This is the example source from my blog post [A Require.js Multi-page Shimmed Site: How-To.](http://robdodson.me/blog/2012/11/18/a-require-dot-js-multipage-shimmed-site-how-to/)
