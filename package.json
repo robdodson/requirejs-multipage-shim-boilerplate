@@ -1,11 +1,11 @@
 {
-  "name": "requirejs-multipage-shim-tutorial",
+  "name": "requirejs-multipage-shim-boilerplate",
   "author": "Rob Dodson <lets.email.rob@gmail.com>",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "devDependencies": {
-    "grunt-contrib-cssmin":       "~0.5.0",
-    "grunt-contrib-requirejs":    "~0.4.0",
-    "grunt-contrib-clean":        "~0.4.0",
-    "grunt":                      "~0.4.0"
+    "grunt-contrib-cssmin":       "latest",
+    "grunt-contrib-requirejs":    "latest",
+    "grunt-contrib-clean":        "latest",
+    "grunt":                      "~0.4"
   }
 }
