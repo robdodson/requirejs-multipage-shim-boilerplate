@@ -1,5 +1,3 @@
-'use strict';
-
 define([
   'jquery',
   'app/models/aboutModel',
@@ -7,6 +5,8 @@ define([
 ],
 
 function ($, model) {
+  'use strict';
+
   $(function() {
     // Set the title for our module with the data
     // from our model
@@ -14,9 +14,12 @@ function ($, model) {
 
     // Set the width of our progress bar with
     // data from our model.
-    $('.bar').css({ 'width': model.getPercentComplete() });
+    var percent = model.getPercentComplete();
+    $('.progress-bar')
+      .css({ 'width': percent })
+      .attr('aria-valuenow', percent.substr(0, percent.length - 1));
 
     // Activate the bootstrap popover plugin
-    $('[rel=popover]').popover({trigger: 'hover'});
+    $('[rel=popover]').popover({ trigger: 'hover' });
   });
 });

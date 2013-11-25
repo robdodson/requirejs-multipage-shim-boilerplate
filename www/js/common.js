@@ -7,6 +7,6 @@ requirejs.config({
     'bootstrap':                'vendor/bootstrap'
   },
   shim: {
-    'bootstrap':                [ 'jquery' ]
+    'bootstrap':                ['jquery']
   }
 });

@@ -13,13 +13,9 @@ module.exports = {
       // nested dependencies.
       include: [
         'app/models/basicModel',
+        'jquery',
         'bootstrap'
-      ],
-      // Since we bundle jquery with require.js we don't need
-      // to additionally compile it into this layer. It will
-      // already be available on the page as part of the 
-      // script tag that pulls in require.js
-      exclude: ['jquery']
+      ]
     },
 
     // Now set up a build layer for each main layer, but exclude
@@ -28,12 +24,12 @@ module.exports = {
     // get confused.
     {
       name: 'app/main-about',
-      exclude: ['common', 'jquery']
+      exclude: ['common']
     },
 
     {
       name: 'app/main-contact',
-      exclude: ['common', 'jquery']
+      exclude: ['common']
     }
   ]
 };
