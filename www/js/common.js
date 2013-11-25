@@ -3,7 +3,7 @@
 requirejs.config({
   baseUrl: './js',
   paths: {
-    'jquery':                   'vendor/require-jquery',
+    'jquery':                   'vendor/jquery',
     'bootstrap':                'vendor/bootstrap'
   },
   shim: {
