@@ -30,3 +30,7 @@ cd requirejs-multipage-shim-boilerplate
 npm install
 grunt
 ```
+
+## License
+
+[MIT License](http://robdodson.mit-license.org/) © Rob Dodson
